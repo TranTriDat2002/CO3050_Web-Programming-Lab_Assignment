@@ -5,32 +5,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "OnlineStore";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM applicants WHERE applicant_id = 1001 limit 1";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $name = $row["fullname"];
-    $email = $row["email"];
-    $phone = $row["phone_number"];
-} else {
-    echo "No Result found";
-}
-
-$conn->close();
 
 
 
