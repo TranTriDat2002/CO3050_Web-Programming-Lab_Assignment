@@ -1,409 +1,304 @@
-CREATE DATABASE MyBestCv;
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: localhost:8889
+-- Thời gian đã tạo: Th10 27, 2023 lúc 09:15 AM
+-- Phiên bản máy phục vụ: 5.7.39
+-- Phiên bản PHP: 8.2.0
 
-USE MyBestCv;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-CREATE TABLE USERS (
-    USER_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USERNAME VARCHAR(50) NOT NULL,
-    PASSWORD VARCHAR(200) NOT NULL
-);
 
-CREATE TABLE APPLICANTS (
-    APPLICANT_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    FULLNAME VARCHAR(100) NOT NULL,
-    PROFESSIONAL_TITLE VARCHAR(100) NOT NULL,
-    ADDRESS VARCHAR(200) NOT NULL,
-    PHONE_NUMBER VARCHAR(20) NOT NULL,
-    EMAIL VARCHAR(100) NOT NULL,
-    SOCIAL_MEDIA VARCHAR(100) NOT NULL,
-    PROFILE_PIC VARCHAR(50) NOT NULL,
-    CREATED_DATE DATE NOT NULL,
-    UPDATED_DATE DATE NOT NULL,
-    INDEX ID_USER (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE ON UPDATE CASCADE
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE CERTIFICATE (
-    CERTIFICATE_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    CERTIFICATE_NAME VARCHAR(100) NOT NULL,
-    CERTIFYING_INSTITUTION VARCHAR(100) NOT NULL,
-    CERTIFICATE_DATE DATE NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+--
+-- Cơ sở dữ liệu: `CV`
+--
 
-CREATE TABLE EDUCATION (
-    EDUCATION_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    DEGREE_LEVEL VARCHAR(100) NOT NULL,
-    INSTITUTION_NAME VARCHAR(100) NOT NULL,
-    START_DATE DATE NOT NULL,
-    END_DATE DATE NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+-- --------------------------------------------------------
 
-CREATE TABLE EXPERIENCE (
-    EXPERIENCE_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    COMPANY_NAME VARCHAR(100) NOT NULL,
-    JOB_TITLE VARCHAR(100) NOT NULL,
-    DESCRIPTION VARCHAR(200) NOT NULL,
-    START_DATE DATE NOT NULL,
-    END_DATE DATE NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+--
+-- Cấu trúc bảng cho bảng `applicants`
+--
 
-CREATE TABLE PROJECT (
-    PROJECT_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    PROJECT_NAME VARCHAR(100) NOT NULL,
-    DESCRIPTION TEXT NOT NULL,
-    PROJECT_LINK VARCHAR(100) NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+CREATE TABLE `applicants` (
+  `applicant_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `professional_title` varchar(100) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `social_media` varchar(100) NOT NULL,
+  `profile_pic` varchar(50) NOT NULL,
+  `created_date` date NOT NULL,
+  `updated_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE REFERENCE (
-    REFERENCE_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    REFERENCE_NAME VARCHAR(200) NOT NULL,
-    INSTITUTION_NAME VARCHAR(200) NOT NULL,
-    INSTITUTION_EMAIL VARCHAR(100) NOT NULL,
-    PHONENUMBER VARCHAR(20) NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+-- --------------------------------------------------------
 
-CREATE TABLE SKILL (
-    SKILL_ID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    USER_ID INT(11) NOT NULL,
-    SKILL_TYPE VARCHAR(100) NOT NULL,
-    SKILL_NAME VARCHAR(100) NOT NULL,
-    SKILL_LEVEL VARCHAR(50) NOT NULL,
-    INDEX USER_ID (USER_ID),
-    CONSTRAINT FOREIGN KEY (USER_ID) REFERENCES USERS (USER_ID) ON DELETE CASCADE
-);
+--
+-- Cấu trúc bảng cho bảng `certificate`
+--
 
-INSERT INTO USERS(
-    USER_ID,
-    USERNAME,
-    PASSWORD
-) VALUES(
-    1000,
-    "NguyenVanA",
-    "20ca70c7c8f494c7bd1d54ad23d40cde"
-),
-(
-    2000,
-    "NguyenVanB",
-    "23280a0ad9238d00c62b0272af265c57"
-),
-(
-    3000,
-    "TranVanC",
-    "c8b8a6f5cb2dc818c19b2598ec27985f"
-),
-(
-    4000,
-    "PhamThiD",
-    "90b5395c0f3736a1147279220c220829"
-);
+CREATE TABLE `certificate` (
+  `certificate_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `certificate_name` varchar(100) NOT NULL,
+  `certifying_institution` varchar(100) NOT NULL,
+  `certificate_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO APPLICANTS(
-    APPLICANT_ID,
-    USER_ID,
-    FULLNAME,
-    PROFESSIONAL_TITLE,
-    ADDRESS,
-    PHONE_NUMBER,
-    EMAIL,
-    SOCIAL_MEDIA,
-    PROFILE_PIC,
-    CREATED_DATE,
-    UPDATED_DATE
-) VALUES(
-    1101,
-    1000,
-    "Nguyen Van Anh",
-    "Mr",
-    "123 Ly Thuong Kiet, P11, Q10, TP.HCM",
-    0987654321,
-    "anh.nguyenvan@hcmut.edu.vn",
-    "https://www.facebook.com/nguyenvananh",
-    "https://scontent.fhan3-5.fna.fbcdn.net/",
-    "2023-11-20",
-    "2023-11-29"
-),
-(
-    2101,
-    2000,
-    "Nguyen Van Binh",
-    "Ms",
-    "456 Ly Thuong Kiet, P11, Q10, TP.HCM",
-    0123456789,
-    "binh.nguyenvan@hcmut.edu.vn",
-    "https://www.facebook.com/nguyenvananh",
-    "https://scontent.fhan3-5.fna.fbcdn.net/",
-    "2023-11-20",
-    "2023-11-29"
-),
-(
-    3101,
-    3000,
-    "Tran Van Cuong",
-    "Mrs",
-    "789 Ly Thuong Kiet, P11, Q10, TP.HCM",
-    05647382910,
-    "cuong.tranvan@hcmut.edu.vn",
-    "https://www.facebook.com/nguyenvananh",
-    "https://scontent.fhan3-5.fna.fbcdn.net/",
-    "2023-11-20",
-    "2023-11-29"
-),
-(
-    4101,
-    4000,
-    "Pham Thi Duong",
-    "Dr",
-    "100 Ly Thuong Kiet, P11, Q10, TP.HCM",
-    0912837465,
-    "duong.phamthi@hcmut.edu.vn",
-    "https://www.facebook.com/nguyenvananh",
-    "https://scontent.fhan3-5.fna.fbcdn.net/",
-    "2023-11-20",
-    "2023-11-29"
-);
+-- --------------------------------------------------------
 
-INSERT INTO CERTIFICATE(
-    CERTIFICATE_ID,
-    USER_ID,
-    CERTIFICATE_NAME,
-    CERTIFYING_INSTITUTION,
-    CERTIFICATE_DATE
-) VALUES(
-    1201,
-    1000,
-    "Microsoft 365 Certified: Administrator Expert",
-    "Microsoft",
-    "2023-11-01"
-),
-(
-    2201,
-    2000,
-    "Microsoft Certified: Azure AI Engineer Associate",
-    "Microsoft",
-    "2020-12-03"
-),
-(
-    3201,
-    3000,
-    "Microsoft Certified: Azure Administrator Associate",
-    "Microsoft",
-    "2022-05-30"
-),
-(
-    4201,
-    4000,
-    "Microsoft Certified: Azure Data Engineer Associate",
-    "Microsoft",
-    "2021-03-03"
-);
+--
+-- Cấu trúc bảng cho bảng `education`
+--
 
-INSERT INTO SKILL(
-    SKILL_ID,
-    USER_ID,
-    SKILL_TYPE,
-    SKILL_NAME,
-    SKILL_LEVEL
-) VALUES(
-    1301,
-    1000,
-    "Technical Skill",
-    "Python Programming",
-    "Intermediate"
-),
-(
-    2301,
-    2000,
-    "Communication Skill",
-    "Public Speaking",
-    "Advanced"
-),
-(
-    3301,
-    3000,
-    "Interpersonal Skill",
-    "Teamwork",
-    "Expert"
-),
-(
-    4301,
-    4000,
-    "Analytical Skill",
-    "Problem-solving",
-    "Advanced"
-);
+CREATE TABLE `education` (
+  `education_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `degree_level` varchar(100) NOT NULL,
+  `institution_name` varchar(100) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO PROJECT(
-    PROJECT_ID,
-    USER_ID,
-    PROJECT_NAME,
-    DESCRIPTION,
-    PROJECT_LINK
-) VALUES(
-    1401,
-    1000,
-    "Machine Learning Project",
-    "Built a machine learning model to predict customer churn. The model was successfully deployed into production and reduced customer churn by 10%.",
-    "https://github.com/example/machine-learning-project"
-),
-(
-    2401,
-    2000,
-    "Website Development",
-    "Developed a fully functional e-commerce website using HTML, CSS, and JavaScript. Implemented features such as user authentication, product management, and shopping cart functionality.",
-    "https://github.com/example/website-development"
-),
-(
-    3401,
-    3000,
-    "Mobile App Development",
-    "Created a native mobile application for Android and iOS platforms using Flutter. The app provided users with a real-time news feed and personalized recommendations.",
-    "https://github.com/example/mobile-app-development"
-),
-(
-    4401,
-    4000,
-    "Data Analytics Project",
-    "Conducted a data analysis project to identify trends and patterns in customer behavior. The findings were used to improve marketing campaigns and customer satisfaction.",
-    "https://github.com/example/data-analytics-project"
-);
+-- --------------------------------------------------------
 
-INSERT INTO EXPERIENCE(
-    EXPERIENCE_ID,
-    USER_ID,
-    COMPANY_NAME,
-    JOB_TITLE,
-    DESCRIPTION,
-    START_DATE,
-    END_DATE
-) VALUES(
-    1501,
-    1000,
-    "Google",
-    "Software Engineer",
-    "Developed and maintained web applications using Python and JavaScript.",
-    "2019-06-01",
-    "2023-12-01"
-),
-(
-    2501,
-    2000,
-    "Amazon",
-    "Data Scientist",
-    "Analyzed customer data to identify trends and patterns.",
-    "2020-01-01",
-    "2022-12-31"
-),
-(
-    3501,
-    3000,
-    "Microsoft",
-    "Project Manager",
-    "Managed software development projects from conception to launch.",
-    "2018-01-01",
-    "2021-12-31"
-),
-(
-    4501,
-    4000,
-    "Apple",
-    "UX Designer",
-    "Designed user interfaces for mobile and web applications.",
-    "	2017-01-01",
-    "2019-05-31"
-);
+--
+-- Cấu trúc bảng cho bảng `experience`
+--
 
-INSERT INTO EDUCATION(
-    EDUCATION_ID,
-    USER_ID,
-    DEGREE_LEVEL,
-    INSTITUTION_NAME,
-    START_DATE,
-    END_DATE
-) VALUES(
-    1601,
-    1000,
-    "Bachelor's",
-    "XYZ University",
-    "2019-06-01",
-    "2023-12-01"
-),
-(
-    2601,
-    2000,
-    "Master's",
-    "ABC Business School",
-    "2020-01-01",
-    "2022-12-31"
-),
-(
-    3601,
-    3000,
-    "Associate's",
-    "Creative Arts College",
-    "2018-01-01",
-    "2021-12-31"
-),
-(
-    4601,
-    4000,
-    "Doctorate",
-    "Medical University of Cityville",
-    "	2017-01-01",
-    "2019-05-31"
-);
+CREATE TABLE `experience` (
+  `experience_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `company_name` varchar(100) NOT NULL,
+  `job_title` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO REFERENCE(
-    REFERENCE_ID,
-    USER_ID,
-    REFERENCE_NAME,
-    INSTITUTION_NAME,
-    INSTITUTION_EMAIL,
-    PHONENUMBER
-) VALUES(
-    1701,
-    1000,
-    "Dr. Amanda Johnson",
-    "City General Hospital",
-    "amanda.johnson@cityhospital.com",
-    "+1 (555) 123-4567"
-),
-(
-    2701,
-    2000,
-    "Professor Robert Martinez",
-    "XYZ University",
-    "robert.martinez@xyzuniversity.edu",
-    "+1 (555) 987-6543"
-),
-(
-    3701,
-    3000,
-    "Mary Thompson, M.Sc.",
-    "ABC Research Institute",
-    "mary.thompson@abcinstitute.org",
-    "+1 (555) 234-5678"
-),
-(
-    4701,
-    4000,
-    "John Davis, MBA",
-    "XYZ Business Solutions",
-    "john.davis@xyzbusiness.com",
-    "+1 (555) 876-5432"
-);
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `project`
+--
+
+CREATE TABLE `project` (
+  `project_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `project_name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `project_link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `reference`
+--
+
+CREATE TABLE `reference` (
+  `reference_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `reference_name` varchar(200) NOT NULL,
+  `institution_name` varchar(200) NOT NULL,
+  `institution_email` varchar(100) NOT NULL,
+  `phonenumber` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `skill`
+--
+
+CREATE TABLE `skill` (
+  `skill_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `skill_type` varchar(100) NOT NULL,
+  `skill_name` varchar(100) NOT NULL,
+  `skill_level` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `applicants`
+--
+ALTER TABLE `applicants`
+  ADD PRIMARY KEY (`applicant_id`),
+  ADD KEY `id_user` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `certificate`
+--
+ALTER TABLE `certificate`
+  ADD PRIMARY KEY (`certificate_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`education_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `experience`
+--
+ALTER TABLE `experience`
+  ADD PRIMARY KEY (`experience_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`project_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `reference`
+--
+ALTER TABLE `reference`
+  ADD PRIMARY KEY (`reference_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `skill`
+--
+ALTER TABLE `skill`
+  ADD PRIMARY KEY (`skill_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `applicants`
+--
+ALTER TABLE `applicants`
+  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `certificate`
+--
+ALTER TABLE `certificate`
+  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `education`
+--
+ALTER TABLE `education`
+  MODIFY `education_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `experience`
+--
+ALTER TABLE `experience`
+  MODIFY `experience_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `project`
+--
+ALTER TABLE `project`
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `reference`
+--
+ALTER TABLE `reference`
+  MODIFY `reference_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `skill`
+--
+ALTER TABLE `skill`
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `applicants`
+--
+ALTER TABLE `applicants`
+  ADD CONSTRAINT `applicants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `certificate`
+--
+ALTER TABLE `certificate`
+  ADD CONSTRAINT `certificate_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `education`
+--
+ALTER TABLE `education`
+  ADD CONSTRAINT `education_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `experience`
+--
+ALTER TABLE `experience`
+  ADD CONSTRAINT `experience_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `reference`
+--
+ALTER TABLE `reference`
+  ADD CONSTRAINT `reference_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Các ràng buộc cho bảng `skill`
+--
+ALTER TABLE `skill`
+  ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
