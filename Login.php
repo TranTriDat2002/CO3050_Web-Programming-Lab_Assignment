@@ -6,21 +6,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<body class="bg-light">
 
-    <form id="loginForm" method="post">
-        <div class="mb-3">
-            <label for="InputUsername" class="form-label" >Username </label>
-            <input id="username" type="text" class="form-control" name="username" required>
-        </div>
-        <div class="mb-3">
-            <label for="InputPassword" class="form-label">Password</label>
-            <input id="password" type="password" name="password" class="form-control" pattern=".{8,}"
-                title="At least 8 character length" required>
-        </div>
-        <div id="result"></div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="container">
+
+        <h2 class="text-center mb-4 resize-width">Login</h2>
+
+        <form id="loginForm" method="post">
+            <div class="form-group resize-width">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group resize-width">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" pattern=".{8,}"
+                    title="At least 8 characters" required>
+            </div>
+            <div id="result" class="mb-3"></div>
+            <button type="submit" class="btn btn-primary btn-block resize-width">Submit</button>
+        </form>
+
+    </div>
 
     <!-- Check with server database -->
     <script>
