@@ -33,13 +33,13 @@ session_start();
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            $_SESSION['userID'] = $row['userID'];
+            $_SESSION['userID'] = $row['user_ID'];
             $_SESSION['userName'] = $row['userName'];
 
-            setcookie('user_id', $row['userID'], time() + 3600, '/');
+            setcookie('user_id', $row['user_ID'], time() + 3600, '/');
             // Redirect to the dashboard or another page
             echo 'Login successfully'
-                . '<script>window.location = "/web_lab/lab3/?page=home";</script>';
+                . '<script>window.location = "index.php";</script>';
         } else {
             echo "Incorrect username or password!";
         }
