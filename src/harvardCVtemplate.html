@@ -13,59 +13,32 @@
   </head>
   <body>
     <header>
-      <h1>{{ name }}</h1>
-      <p>{{ email }} | {{ phone }}</p>
+      <h1>{{ displayName }}</h1>
+      <p>{{ displayEmail }} | {{ displayPhone }}</p>
     </header>
 
     <section class="section">
       <h2>Education</h2>
       <hr />
-      <div>
-        <h3>{{ university }}</h3>
-        <span style="float: left">{{ course }}</span>
-        <span style="float: right">{{ courseTime }}</span>
-        <br />
-        {{ uniAchievements }}
-        <!-- <ul>
-                <li></li>
-            </ul> -->
-      </div>
+      {{ displayUniversityInfo }}
     </section>
 
     <section class="section">
       <h2>Technical Skills</h2>
       <hr />
-      {{ listOfSkills }}
+      {{ displayTechSkills }}
     </section>
 
     <section class="section">
       <h2>Professional Experience</h2>
       <hr />
-      <div>
-        <span style="float: left; font-weight: bold">{{ companyName }}</span>
-        <span style="float: right">{{ companyLoc }}</span>
-        <br />
-        <span style="float: left">{{ companyPos }}</span>
-        <span style="float: right">{{ companyTime }}</span>
-        <br />
-        {{ companyDesc }}
-        <!-- <ul>
-                <li></li>
-            </ul> -->
-      </div>
+      {{ displayExperiences }}
     </section>
 
     <section class="section">
       <h2>Certifications</h2>
       <hr />
-      <div>
-        <ul>
-          <li>
-            <span style="float: left">{{ certName }}</span>
-            <span style="float: right">{{ certTime }}</span>
-          </li>
-        </ul>
-      </div>
+      {{ displayCertifications }}
     </section>
   </body>
 </html>
