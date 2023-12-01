@@ -60,7 +60,7 @@ session_start();
                     <?php
                     // Display user name if set
                     if (isset($_SESSION['userName'])) {
-                        echo '<li><a href="?page=home"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['userName'] . '</a></li>';
+                        echo '<li><a href="?page=info"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['userName'] . '</a></li>';
                     }
                     ?>
                     <!-- Display login/logout button -->
@@ -96,6 +96,12 @@ session_start();
             break;
         case 'getCV':
             include 'GetCV.php';
+            break;
+        case 'login':
+            include 'Login.php';
+            break;
+        case 'logout':
+            include 'Logout.php';
             break;
         default:
             include '404.php';
