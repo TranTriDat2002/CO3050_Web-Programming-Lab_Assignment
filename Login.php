@@ -19,7 +19,7 @@
             </div>
             <div class="form-group resize-width">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" pattern=".{8,}"
+                <input type="password" class="form-control" id="password" name="password"
                     title="At least 8 characters" required>
             </div>
             <div id="result" class="mb-3"></div>

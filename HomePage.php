@@ -27,7 +27,52 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <h2 style="text-align: center;">You may like</h2>
+        <div class="row">
+            <?php
+            // Sample user data
+            $users = [
+                [
+                    'image' => 'assets\img\female1.jpg',
+                    'name' => 'John Doe',
+                    'field' => 'Web Development'
+                ],
+                [
+                    'image' => 'assets\img\female2.jpg',
+                    'name' => 'Jane Smith',
+                    'field' => 'Graphic Design'
+                ],
+                [
+                    'image' => 'assets\img\female3.jpg',
+                    'name' => 'Mike Johnson',
+                    'field' => 'Mobile App Development'
+                ]
+            ];
 
+            // Loop through users and display user cards
+            foreach ($users as $user) {
+                ?>
+                <div class="col-md-4">
+                    <div class="card user-card">
+                        <div style="display: flex; justify-content: center;">
+                            <img src="<?php echo $user['image']; ?>" class="card-img-top" alt="User Image" >
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">
+                                <?php echo $user['name']; ?>
+                            </h5>
+                            <p class="card-text" style="text-align: center;">
+                                <?php echo $user['field']; ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
 
 </body>
 

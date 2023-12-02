@@ -18,30 +18,28 @@ session_start();
 
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
-        $password = hash('md5', $_POST["password"]);
+        $password = $_POST['password'];
 
-        // Check password in correct form
-        if (strlen($_POST["password"]) < 8) {
-            echo "Password must be at least 8 characters";
-            exit();
-        }
 
-        $sql = "SELECT user_ID, userName FROM users WHERE username = '$username' AND password = '$password'";
-        // SQL Injection!!!
-    
+        $sql = "SELECT id, userName, password FROM users WHERE username = '$username'";
         $result = $conn->query($sql);
+        // SQL Injection!!!
+        $user = $result->fetch_assoc();
 
         if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
-            $_SESSION['userID'] = $row['user_ID'];
-            $_SESSION['userName'] = $row['userName'];
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['userID'] = $user['id'];
+                $_SESSION['userName'] = $user['userName'];
+                setcookie('user_id', $user['id'], time() + 3600, '/');
+                // Redirect to the dashboard or another page
+                echo 'Login successfully'
+                    . '<script>window.location = "index.php";</script>';
+            } else {
+                echo "Wrong password!";
+            }
 
-            setcookie('user_id', $row['user_ID'], time() + 3600, '/');
-            // Redirect to the dashboard or another page
-            echo 'Login successfully'
-                . '<script>window.location = "index.php";</script>';
         } else {
-            echo "Incorrect username or password!";
+            echo "Username not found!";
         }
     } else {
         echo "Invalid request.";

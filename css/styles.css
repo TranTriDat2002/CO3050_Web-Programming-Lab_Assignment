@@ -16,3 +16,23 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.avatar-display{
+  width: 60%;
+  height: 60%;
+  border-radius: 10%;
+  margin-top: 16px;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.card-img-top{
+  width: 30%;
+  height: 15vw;
+  object-fit: cover;
+}
