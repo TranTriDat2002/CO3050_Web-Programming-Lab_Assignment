@@ -6,10 +6,24 @@ function displayEmail($data) {
     $result = '';
     if (is_array($data['email'])) {
         foreach ($data['email'] as $email) {
-            $result .= '<li>' . $email . '</li>';
+            $result .= 
+            '<li>
+            <img 
+            src="email.png" 
+            alt="" 
+            style="padding-right: 5px; padding-bottom: 0px; margin-bottom: -3px">'
+             . $email . 
+             '</li>';
         }
     } else {
-        $result .= '<li>' . $data['email'] . '</li>';
+        $result .= 
+        '<li>
+        <img 
+        src="email.png" 
+        alt="" 
+        style="padding-right: 5px; padding-bottom: 0px; margin-bottom: -3px">'
+        . $data['email'] . 
+        '</li>';
     }
     return $result;
 }
@@ -17,10 +31,26 @@ function displayPhone($data) {
     $result = '';
     if (is_array($data['phone'])) {
         foreach ($data['phone'] as $phone) {
-            $result .= '<li>' . $phone . '</li>';
+            $result .= 
+            '<li>
+            <img 
+            src="phone.png" 
+            alt="" 
+            style="padding-right: 0px; padding-bottom: 0px; margin-bottom: -3px">
+            ' 
+            . $phone . 
+            '</li>';
         }
     } else {
-        $result .= '<li>' . $data['phone'] . '</li>';
+            $result .= 
+            '<li>
+            <img 
+            src="phone.png" 
+            alt="" 
+            style="padding-right: 0px; padding-bottom: 0px; margin-bottom: -3px">
+            ' 
+            . $data['phone'] . 
+            '</li>';
     }
     return $result;
 }
