@@ -6,10 +6,10 @@ function displayEmail($data) {
     $result = '';
     if (is_array($data['email'])) {
         foreach ($data['email'] as $email) {
-            $result .= $email . ', ';
+            $result .= '<li>' . $email . '</li>';
         }
     } else {
-        $result .= $data['email'];
+        $result .= '<li>' . $data['email'] . '</li>';
     }
     return $result;
 }
@@ -17,22 +17,28 @@ function displayPhone($data) {
     $result = '';
     if (is_array($data['phone'])) {
         foreach ($data['phone'] as $phone) {
-            $result .= $phone . ', ';
+            $result .= '<li>' . $phone . '</li>';
         }
     } else {
-        $result .= $data['phone'];
+        $result .= '<li>' . $data['phone'] . '</li>';
     }
     return $result;
 }
 function displayUniversityInfo($data) {
     $result = '';
     foreach ($data['university'] as $university) {
-        $result .= '<div>
-                <h3>' . $university['uniName'] . '</h3>
-                <span style="float: left">' . $university['uniCourse'] . '</span>
-                <span style="float: right">' . $university['uniTime'] . '</span>
-                <br />
-                <ul>';
+        $result .= 
+        '<div>
+            <table>
+                <tr>
+                    <td style="font-weight: bold; text-align: left;"> ' . $university['uniName'] . ' </td>
+                </tr>
+                <tr>
+                    <td>' . $university['uniCourse'] . '</td>
+                    <td>' . $university['uniTime'] . '</td>
+                </tr>
+            </table>
+            <ul style="margin-top: 0px;">';
         
         foreach ($university['uniAchievements'] as $achievement) {
             $result .= '<li>' . $achievement . '</li>';
@@ -46,7 +52,7 @@ function displayTechSkills($data) {
     $result = '';
     $result .= '<ul>';
     foreach ($data['techSkills'] as $techSkill) {
-        $result .= '<li>' . $techSkill . '</li>';
+        $result .= '<li>' . $techSkill . '</li>'; 
     }
     $result .= '</ul>';
     return $result;
@@ -55,10 +61,15 @@ function displayCertifications($data) {
     $result = '';
     $result .= '<ul>';
     foreach ($data['Certificates'] as $certification) {
-        $result .= '<li>
-                <span style="float: left">' . $certification['certName'] . '</span>
-                <span style="float: right">' . $certification['certTime'] . '</span>
-              </li>';
+        $result .= 
+        '<li>
+            <table>
+                <tr>
+                    <td>' . $certification['certName'] . '</td>
+                    <td>' . $certification['certTime'] . '</td>
+                </tr>
+            </table>
+        </li>';
     }
     $result .= '</ul>';
     return $result;
@@ -66,15 +77,20 @@ function displayCertifications($data) {
 function displayExperiences($data) {
     $result = '';
     foreach ($data['experiences'] as $experience) {
-        $result .= '<div>
-                <span style="float: left; font-weight: bold">' . $experience['companyName'] . '</span>
-                <span style="float: right">' . $experience['companyLocation'] . '</span>
-                <br />
-                <span style="float: left">' . $experience['companyPosition'] . '</span>
-                <span style="float: right">' . $experience['companyTime'] . '</span>
-                <br />
-                <p>' . $experience['companyDescription'] . '</p>
-              </div>';
+        $result .= 
+        '<div>
+            <table>
+                <tr>
+                    <td style="font-weight: bold">' . $experience['companyName'] . '</td>
+                    <td>' . $experience['companyLocation'] . '</td>
+                </tr>
+                <tr>
+                    <td>' . $experience['companyPosition'] . '</td>
+                    <td>' . $experience['companyTime'] . '</td>
+                </tr>
+            </table>
+            <p style="margin-top: 0px;">' . $experience['companyDescription'] . '</p>
+        </div>';
     }
     return $result;
 }
