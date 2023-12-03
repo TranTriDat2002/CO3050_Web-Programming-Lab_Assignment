@@ -47,7 +47,7 @@ ob_start();
                             </div>
                         </div>
                         
-                        <a href="'.  .'" class="btn btn-primary" style="align-self: center;">Print</a>     
+                        <a href="<?php echo $user[\'link\']; ?>" class="btn btn-primary" style="align-self: center;">Print</a>     
                         ';
                         }
                     }
@@ -104,26 +104,10 @@ ob_start();
                             <h2 class="card-title">Working History</h2>
                                 <ul>';
                         while ($row = $result->fetch_assoc()) {
-                            $duration = 'N/A';
-                            if ($row['duration'] == 0)
-                                $duration = 'Less Than 6 Months';
-                            elseif ($row['duration'] == 1)
-                                $duration = '6 Months to < 1 Years';
-                            elseif ($row['duration'] == 2)
-                                $duration = '1 Years to < 2 Years';
-                            elseif ($row['duration'] == 3)
-                                $duration = '2 Years to < 3 Years';
-                            elseif ($row['duration'] == 4)
-                                $duration = '3 Years to < 4 Years';
-                            elseif ($row['duration'] == 5)
-                                $duration = '4 Years to < 5 Years';
-                            elseif ($row['duration'] == 6)
-                                $duration = 'Over 5 Years';
-                            elseif ($row['duration'] == -1)
-                                $duration = 'Still in Job';
+                            
                             $output .= '
                             <li><em>' . $row['position'] . '</em> at <em>' . $row['company_name'] . '</em>
-                            <br>' . '<strong>Duration: </strong>' . $duration . '
+                            <br>' . '<strong>Duration: </strong>' . $row['duration'] . '
                             <br>' . '<strong>Tasks: </strong>' . $row['tasks'] . '</li>
                         ';
                         }
