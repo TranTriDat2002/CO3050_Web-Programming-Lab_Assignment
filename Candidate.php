@@ -112,7 +112,7 @@
                             echo "</div>";
                         echo "</td>";
 
-                        echo "<td><button type=\"button\" class=\"btn btn-outline-dark\">View CV</button></td>";
+                        echo "<td><a href=\"?page=showCV&id=". $row['id'] ." \" type=\"button\" class=\"btn btn-info\" role=\"button\">View CV</a></td>";
                         echo "</tr>";
                     }
                 } else {
