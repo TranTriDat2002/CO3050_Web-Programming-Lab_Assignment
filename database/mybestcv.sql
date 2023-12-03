@@ -50,7 +50,11 @@ INSERT INTO `additional_information` (`id`, `resume_id`, `user_id`, `hobbies`, `
 (8, 8, 8, 'Blogging, playing guitar', 'Regular exercise, healthy eating habits', 'I am a lifelong learner and enjoy taking courses in various subjects.'),
 (9, 9, 9, 'Reading, woodworking', 'Regular exercise, meditation', 'I enjoy taking on DIY projects and have built several pieces of furniture for my home.'),
 (10, 10, 10, 'Playing volleyball, camping', 'Regular exercise, healthy eating habits', 'I am a big sports fan and enjoy watching and playing a variety of sports.'),
-(11, 11, 1, 'Regular exercise, healthy eating habits', 'Playing guitar, camping, hiking', 'I am fluent in Spanish and have lived abroad for several years.');
+(11, 11, 1, 'Regular exercise, healthy eating habits', 'Playing guitar, camping, hiking', 'I am fluent in Spanish and have lived abroad for several years.'),
+(12, 12, 12, 'Blogging, playing guitar', 'Regular exercise, healthy eating habits', 'I am a lifelong learner and enjoy taking courses in various subjects.'),
+(13, 13, 13, 'Reading, woodworking', 'Regular exercise, meditation', 'I enjoy taking on DIY projects and have built several pieces of furniture for my home.'),
+(14, 14, 14, 'Playing volleyball, camping', 'Regular exercise, healthy eating habits', 'I am a big sports fan and enjoy watching and playing a variety of sports.'),
+(15, 15, 15, 'Regular exercise, healthy eating habits', 'Playing guitar, camping, hiking', 'I am fluent in Spanish and have lived abroad for several years.');
 
 -- --------------------------------------------------------
 
@@ -97,7 +101,11 @@ INSERT INTO `certificate` (`id`, `resume_id`, `user_id`, `title`, `organization`
 (22, 7, 7, 'Certified Business Analyst', 'International Institute of Business Analysis', '2021-11-30', NULL, '2023-12-01 16:19:05', NULL),
 (23, 8, 8, 'Certified Cloud Architect', 'Amazon Web Services', '2022-03-15', NULL, '2023-12-01 16:19:05', NULL),
 (24, 9, 9, 'Certified Machine Learning Engineer', 'Google', '2022-02-20', NULL, '2023-12-01 16:19:05', NULL),
-(25, 10, 10, 'Certified Ethical Hacker', 'EC-Council', '2021-08-05', NULL, '2023-12-01 16:19:05', NULL);
+(25, 10, 10, 'Certified Ethical Hacker', 'EC-Council', '2021-08-05', NULL, '2023-12-01 16:19:05', NULL),
+(26, 12, 12, 'Certified Business Analyst', 'International Institute of Business Analysis', '2021-11-30', NULL, '2023-12-01 16:19:05', NULL),
+(27, 13, 13, 'Certified Cloud Architect', 'Amazon Web Services', '2022-03-15', NULL, '2023-12-01 16:19:05', NULL),
+(28, 14, 14, 'Certified Machine Learning Engineer', 'Google', '2022-02-20', NULL, '2023-12-01 16:19:05', NULL),
+(29, 15, 15, 'Certified Ethical Hacker', 'EC-Council', '2021-08-05', NULL, '2023-12-01 16:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -142,7 +150,11 @@ INSERT INTO `education` (`id`, `resume_id`, `user_id`, `school`, `degree`, `majo
 (18, 5, 5, 'Columbia University', 'MBA', 'Marketing', '2021', '10/10', '2023-12-01 16:03:18', NULL),
 (19, 5, 5, 'Virginia Polytechnic Institute and State University', 'Bachelor', 'Mechanical Engineering', '2021', '10/10', '2023-12-01 16:03:18', NULL),
 (20, 6, 6, 'University of Washington', 'Bachelor', 'English', '2021', '10/10', '2023-12-01 16:03:18', NULL),
-(21, 6, 6, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL);
+(21, 6, 6, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL),
+(22, 12, 12, 'Columbia University', 'MBA', 'Marketing', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(23, 13, 13, 'Virginia Polytechnic Institute and State University', 'Bachelor', 'Mechanical Engineering', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(24, 14, 14, 'University of Washington', 'Bachelor', 'English', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(25, 15, 15, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -174,7 +186,11 @@ INSERT INTO `reference` (`id`, `resume_id`, `user_id`, `name`, `email`, `phone`,
 (9, 6, 6, 'Andrew Kwon', 'andrewkwon@email.com', '0923456789', 'Former Manager'),
 (10, 8, 8, 'Jessica Park', 'jessicapark@email.com', '023456789', 'Former Colleague'),
 (11, 11, 1, 'Sarah Lee', 'sarahlee@email.com', '0421412421', 'Former Manager'),
-(12, 11, 1, 'David Kim', 'davidkim@email.com', '0123456779', 'Former Colleague');
+(12, 11, 1, 'David Kim', 'davidkim@email.com', '0123456779', 'Former Colleague'),
+(13, 12, 12, 'Andrew Kwon', 'andrewkwon@email.com', '0923456789', 'Former Manager'),
+(14, 13, 13, 'Jessica Park', 'jessicapark@email.com', '023456789', 'Former Colleague'),
+(15, 14, 14, 'Sarah Lee', 'sarahlee@email.com', '0421412421', 'Former Manager'),
+(16, 15, 15, 'David Kim', 'davidkim@email.com', '0123456779', 'Former Colleague');
 
 -- --------------------------------------------------------
 
@@ -208,7 +224,11 @@ INSERT INTO `resume` (`id`, `user_id`, `title`, `position`, `employment_type`, `
 (8, 8, 'Event Hosting', 'Marketing Coordinator', 'full-time', 70, 'To develop and implement effective marketing plans', '2023-12-01 16:03:18', NULL),
 (9, 9, 'Teaching Assistance', 'Mentor', 'part-time', 30, 'To help guide and inspire others', '2023-12-01 16:03:18', NULL),
 (10, 10, 'Facebook Content', 'Content Creator', 'full-time', 80, 'To create engaging and informative content for audiences', '2023-12-01 16:03:18', NULL),
-(11, 1, 'Backend Developer', 'Web developer', 'full-time', 10, 'To become an expert in web development', '2023-12-01 16:19:05', NULL);
+(11, 1, 'Backend Developer', 'Web developer', 'full-time', 10, 'To become an expert in web development', '2023-12-01 16:19:05', NULL),
+(12, 12, 'Event Hosting', 'Marketing Coordinator', 'full-time', 70, 'To develop and implement effective marketing plans', '2023-12-01 16:03:18', NULL),
+(13, 13, 'Teaching Assistance', 'Mentor', 'part-time', 30, 'To help guide and inspire others', '2023-12-01 16:03:18', NULL),
+(14, 14, 'Facebook Content', 'Content Creator', 'full-time', 80, 'To create engaging and informative content for audiences', '2023-12-01 16:03:18', NULL),
+(15, 15, 'Backend Developer', 'Web developer', 'full-time', 10, 'To become an expert in web development', '2023-12-01 16:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -245,7 +265,11 @@ INSERT INTO `skill` (`id`, `resume_id`, `user_id`, `skill`) VALUES
 (19, 11, 1, 'PHP'),
 (20, 11, 1, 'JavaScript'),
 (21, 11, 1, 'HTML'),
-(22, 11, 1, 'CSS');
+(22, 11, 1, 'CSS'),
+(23, 12, 12, 'PHP'),
+(24, 13, 13, 'JavaScript'),
+(25, 14, 14, 'HTML'),
+(26, 15, 15, 'CSS');
 
 -- --------------------------------------------------------
 
@@ -283,7 +307,11 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ema
 (7, 'Coralie', 'Carslaw', 'ccarslaw6', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ccarslaw6@gmail.com', '0401625846', 'Darwin, Australia', 'assets/img/female4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
 (8, 'Garvin', 'Galbreth', 'ggalbreth7', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ggalbreth7@gmail.com', '0867198979', 'Canberra, Australia', 'assets/img/male4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
 (9, 'Cirilo', 'Nosworthy', 'cnosworthy8', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cnosworthy8@gmail.com', '0861791717', 'Gold Coast, Australia', 'assets/img/female5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(10, 'Gertrudis', 'Espinas', 'gespinas9', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'gespinas9@gmail.com', '0291168164', 'Newcastle, Australia', 'assets/img/male5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL);
+(10, 'Gertrudis', 'Espinas', 'gespinas9', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'gespinas9@gmail.com', '0291168164', 'Newcastle, Australia', 'assets/img/male5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(12, 'Dat', 'Tran Tri', 'trantridat', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'dat.trantri2002@hcmut.edu.vn', '0822964482', 'Ho Chi Minh, VietNam', 'assets/img/trantridat.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(13, 'Dat', 'Tang tuan', 'tangtuandat', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'dat.tangtuan@hcmut.edu.vn', '0987654321', 'Ho Chi Minh, VietNam', 'assets/img/tangtuandat.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(14, 'Duc', 'Nguyen Phan Tri', 'nguyenphantriduc', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'duc.nguyenphantri@hcmut.edu.vn', '0987654322', 'Ho Chi Minh, VietNam', 'assets/img/nguyenphantriduc.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(15, 'Hieu', 'Nguyen Chi', 'nguyenchihieu', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'hieu.nguyenchi2002@hcmut.edu.vn', '0987654323', 'Ho Chi Minh, VietNam', 'assets/img/nguyenchihieu.jpg', NULL, 0, '2023-12-01 16:03:17', NULL);
 -- --------------------------------------------------------
 
 --
@@ -338,7 +366,11 @@ INSERT INTO `working_history` (`id`, `resume_id`, `user_id`, `position`, `compan
 (33, 11, 9, 'Nurse', 'Healthcare Facility', 'full-time', '2017 - 2021', 'Provided direct patient care, administered medications, and assisted in medical procedures.'),
 (34, 11, 9, 'Clinical Research Coordinator', 'Research Institute', 'full-time', '2015 - 2017', 'Managed clinical research studies, ensured compliance with protocols, and collected data.'),
 (35, 11, 10, 'Teacher', 'Education Institution', 'full-time', '2018 - 2022', 'Planned and delivered engaging lessons, assessed student performance, and provided feedback.'),
-(36, 11, 10, 'Curriculum Developer', 'Education Company', 'full-time', '2016 - 2018', 'Designed and developed curriculum materials aligned with educational standards.');
+(36, 11, 10, 'Curriculum Developer', 'Education Company', 'full-time', '2016 - 2018', 'Designed and developed curriculum materials aligned with educational standards.'),
+(37, 12, 12, 'Nurse', 'Healthcare Facility', 'full-time', '2017 - 2021', 'Provided direct patient care, administered medications, and assisted in medical procedures.'),
+(38, 13, 13, 'Clinical Research Coordinator', 'Research Institute', 'full-time', '2015 - 2017', 'Managed clinical research studies, ensured compliance with protocols, and collected data.'),
+(39, 14, 14, 'Teacher', 'Education Institution', 'full-time', '2018 - 2022', 'Planned and delivered engaging lessons, assessed student performance, and provided feedback.'),
+(40, 15, 15, 'Curriculum Developer', 'Education Company', 'full-time', '2016 - 2018', 'Designed and developed curriculum materials aligned with educational standards.');
 
 --
 -- Indexes for table `additional_information`

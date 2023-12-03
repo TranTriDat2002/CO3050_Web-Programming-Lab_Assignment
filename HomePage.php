@@ -39,25 +39,25 @@
                     'image' => 'assets\img\tangtuandat.jpg',
                     'name' => 'Tăng Tuấn Đạt',
                     'field' => 'PDF Generate',
-                    'link' => '?page=showCV&id=1'
+                    'link' => '?page=showCV&id=13'
                 ],
                 [
                     'image' => 'assets\img\trantridat.jpg',
                     'name' => 'Trần Trí Đạt',
                     'field' => 'Database Design',
-                    'link' => '?page=showCV&id=2'
+                    'link' => '?page=showCV&id=12'
                 ],
                 [
                     'image' => 'assets\img\nguyenphantriduc.jpg',
                     'name' => 'Nguyễn Phan Trí Đức',
                     'field' => 'Front-end Design',
-                    'link' => '?page=showCV&id=3'
+                    'link' => '?page=showCV&id=14'
                 ],
                 [
                     'image' => 'assets\img\nguyenchihieu.jpg',
                     'name' => 'Nguyễn Chí Hiếu',
                     'field' => 'PDF Design',
-                    'link' => '?page=showCV&id=4'
+                    'link' => '?page=showCV&id=15'
                 ]
             ];
 
