@@ -57,10 +57,6 @@ function displayUniversityInfo($data)
             <ul style="margin-top: 0px;">';
         $result .= '<li> Degree: ' . $university['uniDegree'] . '</li>';
         $result .= '<li> GPA: ' . $university['uniGPA'] . '</li>';
-        // foreach ($university['uniAchievements'] as $achievement) {
-        //     $result .= '<li>' . $achievement . '</li>';
-        // }
-
         $result .= '</ul></div>';
     }
     return $result;
@@ -75,7 +71,7 @@ function displayTechSkills($data)
     $result .= '</ul>';
     return $result;
 }
-function displayCertifications($data)
+function displayCertificates($data)
 {
     $result = '';
     $result .= '<ul>';
@@ -85,8 +81,10 @@ function displayCertifications($data)
             <table>
                 <tr>
                     <td>' . $certification['certName'] . '</td>
-                    <td>' . $certification['certOrg'] . '</td>
                     <td>' . $certification['certTime'] . '</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; font-style: italic;">' . $certification['certOrg'] . '</td>
                 </tr>
             </table>
         </li>';
@@ -102,8 +100,7 @@ function displayExperiences($data)
             '<div>
             <table>
                 <tr>
-                    <td style="font-weight: bold">' . $experience['companyName'] . '</td>
-                    <td>' . '$experience["companyLocation"]' . '</td>
+                    <td style="font-weight: bold; text-align: left;">' . $experience['companyName'] . '</td>
                 </tr>
                 <tr>
                     <td>' . $experience['companyPosition'] . '</td>

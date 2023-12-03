@@ -142,16 +142,16 @@ ob_start();
                 $result = $conn->query($sql);
 
                 if (mysqli_num_rows($result) > 0) {
-                    $skills = '';
+                    $Skills = '';
                     while ($row = $result->fetch_assoc()) {
-                        $delimiter = empty($skills) ? '' : ' <i class="bi bi-dot"></i> ';
-                        $skills .= $delimiter . $row['skill'];
+                        $delimiter = empty($Skills) ? '' : ' <i class="bi bi-dot"></i> ';
+                        $Skills .= $delimiter . $row['skill'];
                     }
                     $output .= '
                         <div class="card mt-2">
                             <div class="card-body">
                                 <h5 class="card-title">Skills</h5>
-                                <p>' . $skills . '</p>
+                                <p>' . $Skills . '</p>
                             </div>
                         </div>';
                 }
