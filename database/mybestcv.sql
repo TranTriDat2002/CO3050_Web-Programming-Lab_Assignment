@@ -274,16 +274,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `email`, `phone`, `address`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Kara-lynn', 'Bownas', 'kbownas0', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'kbownas0@gmail.com', '0402849675', 'Sydney, Australia', 'uploads/female1.jpg', NULL, 0, '2023-12-01 16:03:17', '2023-12-01 16:10:04'),
-(2, 'Siuu', 'Bretelle', 'kbretelle1', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'kbretelle1@gmail.com', '0477247106', 'Melbourne, Australia', 'uploads/male1.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(3, 'Ingra', 'Brugger', 'ibrugger2', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ibrugger2@gmail.com', '0559349117', 'Brisbane, Australia', 'uploads/female2.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(4, 'Michell', 'Medford', 'mmedford3', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'mmedford3@gmail.com', '0325057104', 'Adelaide, Australia', 'uploads/male2.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(5, 'Cart', 'Stringman', 'cstringman4', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cstringman4@gmail.com', '0631353477', 'Perth, Australia', 'uploads/female3.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(6, 'Sabine', 'Baguley', 'sbaguley5', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'sbaguley5@gmail.com', '0872532363', 'Hobart, Australia', 'uploads/male3.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(7, 'Coralie', 'Carslaw', 'ccarslaw6', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ccarslaw6@gmail.com', '0401625846', 'Darwin, Australia', 'uploads/female4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(8, 'Garvin', 'Galbreth', 'ggalbreth7', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ggalbreth7@gmail.com', '0867198979', 'Canberra, Australia', 'uploads/male4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(9, 'Cirilo', 'Nosworthy', 'cnosworthy8', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cnosworthy8@gmail.com', '0861791717', 'Gold Coast, Australia', 'uploads/female5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
-(10, 'Gertrudis', 'Espinas', 'gespinas9', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'gespinas9@gmail.com', '0291168164', 'Newcastle, Australia', 'uploads/male5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL);
+(1, 'Kara-lynn', 'Bownas', 'kbownas0', '$2a$12$cSW.5v9YkERnqtoAKvgwJ.IX2kDNxBJB2feslM/.CLG4f3AmMCI4i', 'kbownas0@gmail.com', '0402849675', 'Sydney, Australia', 'assets/img/female1.jpg', NULL, 0, '2023-12-01 16:03:17', '2023-12-01 16:10:04'),
+(2, 'Siuu', 'Bretelle', 'kbretelle1', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'kbretelle1@gmail.com', '0477247106', 'Melbourne, Australia', 'assets/img/male1.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(3, 'Ingra', 'Brugger', 'ibrugger2', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ibrugger2@gmail.com', '0559349117', 'Brisbane, Australia', 'assets/img/female2.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(4, 'Michell', 'Medford', 'mmedford3', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'mmedford3@gmail.com', '0325057104', 'Adelaide, Australia', 'assets/img/male2.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(5, 'Cart', 'Stringman', 'cstringman4', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cstringman4@gmail.com', '0631353477', 'Perth, Australia', 'assets/img/female3.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(6, 'Sabine', 'Baguley', 'sbaguley5', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'sbaguley5@gmail.com', '0872532363', 'Hobart, Australia', 'assets/img/male3.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(7, 'Coralie', 'Carslaw', 'ccarslaw6', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ccarslaw6@gmail.com', '0401625846', 'Darwin, Australia', 'assets/img/female4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(8, 'Garvin', 'Galbreth', 'ggalbreth7', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ggalbreth7@gmail.com', '0867198979', 'Canberra, Australia', 'assets/img/male4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(9, 'Cirilo', 'Nosworthy', 'cnosworthy8', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cnosworthy8@gmail.com', '0861791717', 'Gold Coast, Australia', 'assets/img/female5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
+(10, 'Gertrudis', 'Espinas', 'gespinas9', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'gespinas9@gmail.com', '0291168164', 'Newcastle, Australia', 'assets/img/male5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL);
 -- --------------------------------------------------------
 
 --
