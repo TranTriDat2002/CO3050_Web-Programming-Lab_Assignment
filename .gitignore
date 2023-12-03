@@ -1,0 +1,73 @@
+# Ignore vendor directories
+/vendor/
+
+# Ignore node_modules directory
+/node_modules/
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+
+# Ignore compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore log files
+*.log
+
+# Ignore cache and temporary files
+/cache/
+/tmp/
+
+# Ignore session files
+/sessions/
+
+# Ignore database files
+*.sqlite
+*.db
+
+# Ignore build artifacts
+/build/
+/dist/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+.env.*.php
+
+# Ignore composer lock file
+composer.lock
+
+# Ignore npm lock file
+package-lock.json
+
+# Ignore compiled JavaScript files
+*.js
+
+# Ignore compiled CSS files
+*.css
+
+# Ignore compiled PHP files
+*.phpc
+
+# Ignore image thumbnails
+*.thumb
+
+# Ignore backup files
+*.bak
+*.swp
+*.swo
+*.~
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+
+# Ignore system files
+.DS_Store
+Thumbs.db
