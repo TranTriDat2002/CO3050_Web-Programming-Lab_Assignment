@@ -1,5 +1,7 @@
 <?php
 require dirname(__DIR__) . "/vendor/autoload.php";
+include_once "../database/db_connection.php";
+
 include_once "displayFunctions.php";
 
 use Dompdf\Dompdf;
@@ -13,83 +15,113 @@ $dompdf = new Dompdf($options);
 
 $dompdf->setPaper("A4", "portrait");
 
-//simulate data from database as json
-$data = '{
-    "name": "John Doe",
-    "email": ["johndoe@example.com","john@abc.com"],
-    "phone": ["(555) 123-4567","(+84) 123-456-789"],
-    "university": [
-        {
-        "uniName": "University of Life",
-        "uniCourse": "Computer Science",
-        "uniTime": "2010-2014",
-        "uniAchievements": ["First", "Second", "Third"]
-        },
-        {
-        "uniName": "University of North",
-        "uniCourse": "Computer Engineering",
-        "uniTime": "2014-2018",
-        "uniAchievements": ["First", "Second", "Third"]
-        },
-        {
-        "uniName": "University of South",
-        "uniCourse": "Computer Engineering",
-        "uniTime": "2014-2018",
-        "uniAchievements": ["First", "Second", "Third"]
-        }
-    ],
-    "Certificates": [
-        { "certName": "Certificate 1", "certTime": "2016" },
-        { "certName": "Certificate 2", "certTime": "2017" },
-        { "certName": "Certificate 3", "certTime": "2018" },
-        { "certName": "Certificate 4", "certTime": "2019" },
-        { "certName": "Certificate 5", "certTime": "2020" }
-    ],
-    "techSkills": [
-        "Languages: C, C++, Java, Python, JavaScript, PHP, HTML, CSS, SQL",
-        "Frameworks: React, Node.js, Express.js, Bootstrap, jQuery, Laravel",
-        "Databases: MySQL, MongoDB",
-        "Tools: Git, GitHub, VS Code, Android Studio" 
-    ],
-    "experiences": [
-        {
-            "companyName": "Company 1",
-            "companyTime": "2016-2017",
-            "companyPosition": "Web Developer",
-            "companyLocation": "London",
-            "companyDescription": "Lorem ipsum"
-        },
-        {
-            "companyName": "Company 2",
-            "companyTime": "2017-2018",
-            "companyPosition": "Web Developer",
-            "companyLocation": "New York",
-            "companyDescription": "Lorum ipsem"
-        },
-        {
-            "companyName": "Company 3",
-            "companyTime": "2018-2019",
-            "companyPosition": "Web Developer",
-            "companyLocation": "Paris",
-            "companyDescription": "Lorum ipsem"
-        },
-        {
-            "companyName": "Company 4",
-            "companyTime": "2019-2020",
-            "companyPosition": "Web Developer",
-            "companyLocation": "Berlin",
-            "companyDescription": "Lorum ipsem"
-        },
-        {
-            "companyName": "Company 5",
-            "companyTime": "2020-2021",
-            "companyPosition": "Web Developer",
-            "companyLocation": "Madrid",
-            "companyDescription": "Lorum ipsem"
-        }
-    ]
-  }';
-$decodedData = json_decode($data, true);
+// Fetch name
+$sql = "select CONCAT(u.firstname, ' ', u.lastname) as name from users u where id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+$Name = $result->fetch_assoc()["name"];
+
+// Fetch email
+$sql = "select 
+email as email
+from users where id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$emails = [];
+while ($row = $result->fetch_assoc()) {
+    $emails[] = $row;
+}
+
+
+// Fetch phone
+$sql = "select
+phone as phone
+from users where id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$phones = [];
+while ($row = $result->fetch_assoc()) {
+    $phones[] = $row;
+}
+
+// Fetch universities
+$sql = "select
+school as uniName,
+major as uniCourse,
+year as uniTime,
+gpa as uniGPA,
+degree as uniDegree
+from education where user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$universities = [];
+while ($row = $result->fetch_assoc()) {
+    $universities[] = $row;
+}
+
+// Fetch skills
+$sql = "select
+skill as skillName
+from skill where user_id = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$skills = [];
+while ($row = $result->fetch_assoc()) {
+    $skills[] = $row;
+}
+
+
+// Fetch certifications
+$sql = "select
+title as certName,
+organization as certOrg,
+obtained_date as certTime
+from certificate where user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$certifications = [];
+while ($row = $result->fetch_assoc()) {
+    $certifications[] = $row;
+}
+
+// Fetch experiences
+$sql = "select 
+company_name as companyName,
+position as companyPosition,
+duration as companyTime,
+tasks as companyDescription
+from working_history where user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_GET["id"]);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$experiences = [];
+while ($row = $result->fetch_assoc()) {
+    $experiences[] = $row;
+}
+
+
+
+
 
 $html = file_get_contents("harvardCVtemplate.html");
 
@@ -104,16 +136,17 @@ $html = str_replace(
         "{{ displayExperiences }}"
     ],
     [
-        displayName($decodedData),
-        displayEmail($decodedData),
-        displayPhone($decodedData),
-        displayUniversityInfo($decodedData),
-        displayTechSkills($decodedData),
-        displayCertifications($decodedData),
-        displayExperiences($decodedData)
+        displayName($Name),
+        displayEmail($emails),
+        displayPhone($phones),
+        displayUniversityInfo($universities),
+        displayTechSkills($skills),
+        displayCertifications($certifications),
+        displayExperiences($experiences)
     ],
     $html
 );
+
 $dompdf->loadHtml($html);
 
 $dompdf->render();

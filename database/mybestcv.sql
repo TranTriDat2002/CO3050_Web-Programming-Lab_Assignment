@@ -470,3 +470,33 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE OR REPLACE VIEW user_profile AS
+SELECT
+    u.id AS uid,
+    CONCAT(u.firstname, ' ', u.lastname) AS name,
+    JSON_ARRAY(u.email) AS email,
+    JSON_ARRAY(u.phone) AS phone,
+    GROUP_CONCAT(JSON_OBJECT(
+        'uniName', e.school,
+        'uniCourse', e.major,
+        'uniTime', e.year,
+        'uniAchievements', JSON_ARRAY('First', 'Second', 'Third')
+    )) AS university,
+    GROUP_CONCAT(JSON_OBJECT(
+        'certName', c.title,
+        'certTime', c.obtained_date
+    )) AS certificates,
+    GROUP_CONCAT(s.skill) AS techSkills,
+    GROUP_CONCAT(JSON_OBJECT(
+        'companyName', w.company_name,
+        'companyPosition', w.position,
+        'companyTime', w.duration,
+        'companyDescription', w.tasks
+    )) AS experiences
+FROM users u
+LEFT JOIN education e ON u.id = e.user_id
+LEFT JOIN certificate c ON u.id = c.user_id
+LEFT JOIN skill s ON u.id = s.user_id
+LEFT JOIN working_history w ON u.id = w.user_id
+GROUP BY u.id;
