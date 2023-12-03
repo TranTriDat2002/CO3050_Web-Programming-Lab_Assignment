@@ -151,39 +151,33 @@ ob_start();
                             </ul>
                         </div>
                     </div>';
-<<<<<<< Updated upstream
+
                 }
 
                 $sql = "SELECT `skill` FROM `skill` WHERE user_id = $id AND `skill` <> ''";
                 $result = $conn->query($sql);
 
                 if (mysqli_num_rows($result) > 0) {
-                    $skills = '';
+                    $Skills = '';
                     while ($row = $result->fetch_assoc()) {
-                        $delimiter = empty($skills) ? '' : ' <i class="bi bi-dot"></i> ';
-                        $skills .= $delimiter . $row['skill'];
-=======
->>>>>>> Stashed changes
-                    }
 
-                    $sql = "SELECT `skill` FROM `skill` WHERE user_id = $id AND `skill` <> ''";
-                    $result = $conn->query($sql);
+                        $delimiter = empty($Skills) ? '' : ' <i class="bi bi-dot"></i> ';
+                        $Skills .= $delimiter . $row['skill'];
 
-                    if (mysqli_num_rows($result) > 0) {
-                        $skills = '';
-                        while ($row = $result->fetch_assoc()) {
-                            $delimiter = empty($skills) ? '' : ' <i class="bi bi-dot"></i> ';
-                            $skills .= $delimiter . $row['skill'];
                         }
                         $output .= '
                         <div class="card mt-2">
                             <div class="card-body">
-<<<<<<< Updated upstream
-                                <h5 class="card-title">Skills</h5>
-=======
+
+                       
+
+                                <p>' . $Skills . '</p>
+
+
                                 <h2 class="card-title">Skills</h2>
->>>>>>> Stashed changes
-                                <p>' . $skills . '</p>
+
+
+
                             </div>
                         </div>';
                     }

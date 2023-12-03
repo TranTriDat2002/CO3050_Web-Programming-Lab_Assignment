@@ -85,7 +85,19 @@ INSERT INTO `certificate` (`id`, `resume_id`, `user_id`, `title`, `organization`
 (10, 8, 8, 'Google Ads Certification', 'Google', '2021-06-25', NULL, '2023-12-01 16:03:18', NULL),
 (11, 9, 9, 'Lean Six Sigma Green Belt', 'International Association for Six Sigma Certification', '2022-01-10', NULL, '2023-12-01 16:03:18', NULL),
 (12, 10, 10, 'Certified Writer', 'National Writers Association', '2021-09-03', NULL, '2023-12-01 16:03:18', NULL),
-(13, 11, 1, 'Google Analytics Individual Qualification', 'Google', '2021-02-01', '2022-02-01', '2023-12-01 16:19:05', NULL);
+(13, 11, 1, 'Google Analytics Individual Qualification', 'Google', '2021-02-01', '2022-02-01', '2023-12-01 16:19:05', NULL),
+(14, 11, 1, 'Certified ScrumMaster', 'Scrum Alliance', '2021-05-15', NULL, '2023-12-01 16:19:05', NULL),
+(15, 2, 2, 'Certified Data Scientist', 'Data Science Council of America', '2022-04-10', NULL, '2023-12-01 16:19:05', NULL),
+(16, 2, 2, 'Certified Agile Project Manager', 'Project Management Institute', '2021-09-20', NULL, '2023-12-01 16:19:05', NULL),
+(17, 3, 3, 'Certified Digital Marketing Professional', 'Digital Marketing Institute', '2022-01-05', NULL, '2023-12-01 16:19:05', NULL),
+(18, 3, 3, 'Certified Social Media Marketing Specialist', 'Hootsuite', '2021-07-10', NULL, '2023-12-01 16:19:05', NULL),
+(19, 4, 4, 'Certified Front-End Web Developer', 'FreeCodeCamp', '2020-12-01', NULL, '2023-12-01 16:19:05', NULL),
+(20, 5, 5, 'Certified Project Management Professional', 'Project Management Institute', '2021-03-18', NULL, '2023-12-01 16:19:05', NULL),
+(21, 6, 6, 'Certified UX Designer', 'Interaction Design Foundation', '2022-06-01', NULL, '2023-12-01 16:19:05', NULL),
+(22, 7, 7, 'Certified Business Analyst', 'International Institute of Business Analysis', '2021-11-30', NULL, '2023-12-01 16:19:05', NULL),
+(23, 8, 8, 'Certified Cloud Architect', 'Amazon Web Services', '2022-03-15', NULL, '2023-12-01 16:19:05', NULL),
+(24, 9, 9, 'Certified Machine Learning Engineer', 'Google', '2022-02-20', NULL, '2023-12-01 16:19:05', NULL),
+(25, 10, 10, 'Certified Ethical Hacker', 'EC-Council', '2021-08-05', NULL, '2023-12-01 16:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -120,7 +132,17 @@ INSERT INTO `education` (`id`, `resume_id`, `user_id`, `school`, `degree`, `majo
 (8, 8, 8, 'Columbia University', 'MBA', 'Marketing', '2021', '10/10', '2023-12-01 16:03:18', NULL),
 (9, 9, 9, 'Virginia Polytechnic Institute and State University', 'Bachelor', 'Mechanical Engineering', '2021', '10/10', '2023-12-01 16:03:18', NULL),
 (10, 10, 10, 'University of Washington', 'Bachelor', 'English', '2021', '10/10', '2023-12-01 16:03:18', NULL),
-(11, 11, 1, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL);
+(11, 11, 1, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL),
+(12, 2, 2, 'University of Michigan', 'Bachelor', 'Business Administration', '2021', '7/10', '2023-12-01 16:03:18', NULL),
+(13, 2, 2, 'Stanford University', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:03:18', NULL),
+(14, 3, 3, 'University of Illinois', 'MBA', 'Accounting', '2021', '7/10', '2023-12-01 16:03:18', NULL),
+(15, 3, 3, 'Massachusetts Institute of Technology', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:03:18', NULL),
+(16, 4, 4, 'University of Texas at Austin', 'Bachelor', 'Business Administration', '2021', '8/10', '2023-12-01 16:03:18', NULL),
+(17, 4, 4, 'Arizona State University', 'Bachelor', 'Communication', '2021', '8/10', '2023-12-01 16:03:18', NULL),
+(18, 5, 5, 'Columbia University', 'MBA', 'Marketing', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(19, 5, 5, 'Virginia Polytechnic Institute and State University', 'Bachelor', 'Mechanical Engineering', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(20, 6, 6, 'University of Washington', 'Bachelor', 'English', '2021', '10/10', '2023-12-01 16:03:18', NULL),
+(21, 6, 6, 'University of California', 'Bachelor', 'Computer Science', '2021', '8/10', '2023-12-01 16:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -262,7 +284,6 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ema
 (8, 'Garvin', 'Galbreth', 'ggalbreth7', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'ggalbreth7@gmail.com', '0867198979', 'Canberra, Australia', 'uploads/male4.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
 (9, 'Cirilo', 'Nosworthy', 'cnosworthy8', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'cnosworthy8@gmail.com', '0861791717', 'Gold Coast, Australia', 'uploads/female5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL),
 (10, 'Gertrudis', 'Espinas', 'gespinas9', '$2y$10$cJAewUStwaJsscmFmQ.09eL08hWQs38.hdfUkNww9c8JCcCTLLuyK', 'gespinas9@gmail.com', '0291168164', 'Newcastle, Australia', 'uploads/male5.jpg', NULL, 0, '2023-12-01 16:03:17', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -283,23 +304,41 @@ CREATE TABLE `working_history` (
 --
 -- Dumping data for table `working_history`
 --
-
 INSERT INTO `working_history` (`id`, `resume_id`, `user_id`, `position`, `company_name`, `work_type`, `duration`, `tasks`) VALUES
-(3, 2, 2, 'Business Analyst', 'XYZ Corporation', 'full-time', '5', 'Worked closely with key stakeholders to model business processes, gather and define business requirements. Conducted system analysis, developed use cases and prepared functional specifications.'),
-(4, 3, 3, 'Senior Accountant', 'Super Accounting Firm', 'full-time', '6', 'Conducted multiple audits of firms and provided internal control analysis while communicating documents and performing fieldwork.'),
-(5, 4, 4, 'Software Developer', 'Global Software Solutions', 'full-time', '4', 'Coded, tested and deployed software applications, APIs and software libraries. Worked in a team environment with frequent code reviews.'),
-(6, 5, 5, 'Associate Electrical Engineer', 'Electricity Innovations', 'full-time', '4', 'Constructed, implemented and analyzed electrical testing to provide safety and optimization in electrical products. Collaborated in a team environment to ensure goal completion.'),
-(7, 6, 6, 'Administrative Assistant', 'Super Industries, Inc.', 'full-time', '4', 'Answered calls and greeted visitors, assigned schedules and acted as the point of contact for all executive appointments.'),
-(8, 7, 7, 'Customer Service Representative', 'Helpful Corp.', 'full-time', '1', 'Provided top-notch customer service using voice and digital channels. Provided solutions to consumer problems by escalating larger issues to management staff when necessary.'),
-(9, 8, 8, 'Marketing Coordinator', 'Marketing Firm', 'full-time', '-1', 'Designed and implemented digital marketing campaigns using a variety of mediums on channels like LinkedIn, Instagram, and Twitter. Analyzed campaign success and made recommendations for updates to the company strategy.'),
-(10, 9, 9, 'Mechanical Engineer', 'Mechanical Industries, LLC', 'full-time', '5', 'Researched, designed and created mechanical systems in machines and structures. Collaborated with a team to ensure the completion of important projects.'),
-(11, 10, 10, 'Content Writer', 'Content Creation, Inc.', 'full-time', '5', 'Wrote engaging content across a variety of web products, ranging from press releases to landing pages to full-fledged articles. Worked with clients to develop content strategies that were appropriate to their specific needs.'),
-(12, 11, 1, 'Web Developer', 'ABC Company', 'full-time', '0', 'Developed and maintained custom websites and web applications using HTML, CSS, JavaScript, and PHP. Collaborated with clients and designers to ensure project accuracy and completed projects on time.'),
-(13, 11, 1, 'Web Developer', 'ABllC Company', 'full-time', '1', 'Developed and maintained custom websites and web applications using HTML, CSS, JavaScript, and PHP.');
-
---
--- Indexes for dumped tables
---
+(3, 2, 2, 'Business Analyst', 'XYZ Corporation', 'full-time', '2015 - 2020', 'Worked closely with key stakeholders to model business processes, gather and define business requirements. Conducted system analysis, developed use cases and prepared functional specifications.'),
+(4, 3, 3, 'Senior Accountant', 'Super Accounting Firm', 'full-time', '2016 - 2022', 'Conducted multiple audits of firms and provided internal control analysis while communicating documents and performing fieldwork.'),
+(5, 4, 4, 'Software Developer', 'Global Software Solutions', 'full-time', '2018 - 2022', 'Coded, tested and deployed software applications, APIs and software libraries. Worked in a team environment with frequent code reviews.'),
+(6, 5, 5, 'Associate Electrical Engineer', 'Electricity Innovations', 'full-time', '2019 - 2023', 'Constructed, implemented and analyzed electrical testing to provide safety and optimization in electrical products. Collaborated in a team environment to ensure goal completion.'),
+(7, 6, 6, 'Administrative Assistant', 'Super Industries, Inc.', 'full-time', '2019 - 2023', 'Answered calls and greeted visitors, assigned schedules and acted as the point of contact for all executive appointments.'),
+(8, 7, 7, 'Customer Service Representative', 'Helpful Corp.', 'full-time', '2022 - 2023', 'Provided top-notch customer service using voice and digital channels. Provided solutions to consumer problems by escalating larger issues to management staff when necessary.'),
+(9, 8, 8, 'Marketing Coordinator', 'Marketing Firm', 'full-time', '2021 - 2022', 'Designed and implemented digital marketing campaigns using a variety of mediums on channels like LinkedIn, Instagram, and Twitter. Analyzed campaign success and made recommendations for updates to the company strategy.'),
+(10, 9, 9, 'Mechanical Engineer', 'Mechanical Industries, LLC', 'full-time', '2015 - 2020', 'Researched, designed and created mechanical systems in machines and structures. Collaborated with a team to ensure the completion of important projects.'),
+(11, 10, 10, 'Content Writer', 'Content Creation, Inc.', 'full-time', '2015 - 2020', 'Wrote engaging content across a variety of web products, ranging from press releases to landing pages to full-fledged articles. Worked with clients to develop content strategies that were appropriate to their specific needs.'),
+(12, 11, 1, 'Web Developer', 'ABC Company', 'full-time', '2012 - 2014', 'Developed and maintained custom websites and web applications using HTML, CSS, JavaScript, and PHP. Collaborated with clients and designers to ensure project accuracy and completed projects on time.'),
+(13, 11, 1, 'Web Developer', 'ABllC Company', 'full-time', '2022 - 2023', 'Developed and maintained custom websites and web applications using HTML, CSS, JavaScript, and PHP.'),
+(14, 11, 1, 'Software Engineer', 'XYZ Tech', 'full-time', '2020 - 2022', 'Designed and implemented software solutions for clients using various programming languages and frameworks.'),
+(15, 11, 1, 'Frontend Developer', 'Tech Solutions', 'full-time', '2018 - 2020', 'Developed user-friendly and responsive frontend interfaces using HTML, CSS, and JavaScript.'),
+(16, 11, 1, 'Database Administrator', 'Data Management Inc.', 'full-time', '2016 - 2018', 'Managed and optimized databases to ensure efficient data storage and retrieval.'),
+(17, 11, 1, 'Quality Assurance Analyst', 'Testing Solutions', 'full-time', '2014 - 2016', 'Performed rigorous testing and quality assurance checks to identify and resolve software defects.'),
+(18, 11, 2, 'Business Analyst', 'ABC Corporation', 'full-time', '2019 - 2022', 'Collaborated with stakeholders to gather and analyze business requirements, and translated them into functional specifications.'),
+(19, 11, 2, 'Project Manager', 'XYZ Projects', 'full-time', '2016 - 2019', 'Led cross-functional teams to successfully deliver projects within scope, budget, and timeline.'),
+(20, 11, 2, 'Data Analyst', 'Data Insights Ltd.', 'full-time', '2014 - 2016', 'Performed data analysis and generated insights to support business decision-making processes.'),
+(21, 11, 3, 'Marketing Specialist', 'Marketing Solutions', 'full-time', '2017 - 2021', 'Developed and executed marketing campaigns across various channels to drive brand awareness and customer engagement.'),
+(22, 11, 3, 'Social Media Manager', 'Social Media Agency', 'full-time', '2015 - 2017', 'Managed social media accounts, created engaging content, and monitored performance metrics.'),
+(23, 11, 4, 'Graphic Designer', 'Creative Studio', 'full-time', '2018 - 2022', 'Designed visually appealing graphics and layouts for print and digital media.'),
+(24, 11, 4, 'UI/UX Designer', 'User Experience Agency', 'full-time', '2016 - 2018', 'Created intuitive user interfaces and conducted user research to optimize user experience.'),
+(25, 11, 5, 'Electrical Engineer', 'Power Systems Inc.', 'full-time', '2019 - 2023', 'Designed and implemented electrical systems for various projects, ensuring compliance with safety standards.'),
+(26, 11, 5, 'Automation Engineer', 'Automation Solutions', 'full-time', '2017 - 2019', 'Developed and implemented automation solutions to improve efficiency and productivity.'),
+(27, 11, 6, 'Human Resources Manager', 'HR Solutions', 'full-time', '2018 - 2022', 'Managed all aspects of human resources, including recruitment, employee relations, and performance management.'),
+(28, 11, 6, 'Training and Development Specialist', 'Learning Solutions', 'full-time', '2016 - 2018', 'Designed and delivered training programs to enhance employee skills and knowledge.'),
+(29, 11, 7, 'Sales Representative', 'Sales Company', 'full-time', '2019 - 2023', 'Identified and pursued new sales opportunities, built relationships with clients, and achieved sales targets.'),
+(30, 11, 7, 'Account Manager', 'Account Management Inc.', 'full-time', '2017 - 2019', 'Managed key client accounts, developed account strategies, and ensured customer satisfaction.'),
+(31, 11, 8, 'Financial Analyst', 'Financial Services Ltd.', 'full-time', '2018 - 2022', 'Conducted financial analysis, prepared financial reports, and provided insights to support decision-making.'),
+(32, 11, 8, 'Investment Analyst', 'Investment Firm', 'full-time', '2016 - 2018', 'Analyzed investment opportunities, performed due diligence, and made investment recommendations.'),
+(33, 11, 9, 'Nurse', 'Healthcare Facility', 'full-time', '2017 - 2021', 'Provided direct patient care, administered medications, and assisted in medical procedures.'),
+(34, 11, 9, 'Clinical Research Coordinator', 'Research Institute', 'full-time', '2015 - 2017', 'Managed clinical research studies, ensured compliance with protocols, and collected data.'),
+(35, 11, 10, 'Teacher', 'Education Institution', 'full-time', '2018 - 2022', 'Planned and delivered engaging lessons, assessed student performance, and provided feedback.'),
+(36, 11, 10, 'Curriculum Developer', 'Education Company', 'full-time', '2016 - 2018', 'Designed and developed curriculum materials aligned with educational standards.');
 
 --
 -- Indexes for table `additional_information`
@@ -470,33 +509,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE OR REPLACE VIEW user_profile AS
-SELECT
-    u.id AS uid,
-    CONCAT(u.firstname, ' ', u.lastname) AS name,
-    JSON_ARRAY(u.email) AS email,
-    JSON_ARRAY(u.phone) AS phone,
-    GROUP_CONCAT(JSON_OBJECT(
-        'uniName', e.school,
-        'uniCourse', e.major,
-        'uniTime', e.year,
-        'uniAchievements', JSON_ARRAY('First', 'Second', 'Third')
-    )) AS university,
-    GROUP_CONCAT(JSON_OBJECT(
-        'certName', c.title,
-        'certTime', c.obtained_date
-    )) AS certificates,
-    GROUP_CONCAT(s.skill) AS techSkills,
-    GROUP_CONCAT(JSON_OBJECT(
-        'companyName', w.company_name,
-        'companyPosition', w.position,
-        'companyTime', w.duration,
-        'companyDescription', w.tasks
-    )) AS experiences
-FROM users u
-LEFT JOIN education e ON u.id = e.user_id
-LEFT JOIN certificate c ON u.id = c.user_id
-LEFT JOIN skill s ON u.id = s.user_id
-LEFT JOIN working_history w ON u.id = w.user_id
-GROUP BY u.id;
