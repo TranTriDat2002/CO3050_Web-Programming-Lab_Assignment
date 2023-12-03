@@ -77,7 +77,7 @@
                 <?php
                 $servername = "localhost";
                 $username = "root";
-                $password = "duc";
+                $password = "";
                 $dbname = "MyBestCV";
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
