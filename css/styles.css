@@ -18,10 +18,9 @@
 }
 
 .avatar-display{
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
   border-radius: 10%;
-  margin-top: 16px;
 }
 
 .center-image {
@@ -32,7 +31,7 @@
 }
 
 .card-img-top{
-  width: 30%;
+  width: 100%;
   height: 15vw;
   object-fit: cover;
 }

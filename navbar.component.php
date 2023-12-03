@@ -22,13 +22,19 @@ function isActive($pageName)
                 <li class="<?php echo isActive('home'); ?>"><a href="?page=home">Home</a></li>
                 <li class="<?php echo isActive('about'); ?>"><a href="?page=about">About</a></li>
                 <li class="<?php echo isActive('candidate'); ?>"><a href="?page=candidate">Candidate</a></li>
+
                 <?php
                 // Display My Info if user logged in set
                 if (isset($_SESSION['userID'])) {
-                    echo '<li class="<?php echo isActive("info"); ?><a href="?page=info">My Info</a></li>';
+                    echo "<li class=\"". isActive('info') ."\"><a href=\"?page=info\">My Info</a></li>";
                 }
                 ?>
-                
+                <?php
+                // Display Show CV if choosen
+                if (isActive('showCV')) {
+                    echo "<li class=\"active\"><a href=\"?page=showCV\">Show CV</a></li>";
+                }
+                ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php

@@ -59,6 +59,9 @@ session_start();
         case 'candidate':
             include 'Candidate.php';
             break;
+        case 'showCV':
+            include 'ShowCV.php';
+            break;
         case 'login':
             include 'Login.php';
             break;
