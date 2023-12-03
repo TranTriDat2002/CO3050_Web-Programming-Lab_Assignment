@@ -47,7 +47,7 @@ ob_start();
                             </div>
                         </div>
                         
-                        <a href="<?php echo $user[\'link\']; ?>" class="btn btn-primary" style="align-self: center;">Print</a>     
+                        <a href="./src/generate-pdf.php?id='. $id .'" class="btn btn-primary" style="align-self: center;">Print</a>   
                         ';
                         }
                     }
