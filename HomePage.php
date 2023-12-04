@@ -10,8 +10,7 @@
 
         <div class="container px-3" style="margin-top: 50px; margin-bottom: 10px;">
             <div class="row">
-                <div class="col-lg-6 p-2"><img class="avatar img-fluid mt-2 avatar-display" src="assets\img\avatar.svg"
-                        width="400" height="400" />
+                <div class="col-lg-6 p-2"><img class="avatar img-fluid mt-2 avatar-display" src="assets\img\avatar.svg" width="400" height="400" />
                 </div>
 
                 <div class="col-lg-6">
@@ -63,16 +62,14 @@
 
             // Loop through users and display user cards
             foreach ($users as $user) {
-                ?>
+            ?>
 
 
 
                 <div class="col-md-3">
-                    <div class="card text-center"
-                        style="border-style: solid; border-width: 1px; border-radius: 4%; margin-bottom: 14px;">
+                    <div class="card text-center" style="border-style: solid; border-width: 1px; border-radius: 4%; margin-bottom: 14px;">
                         <div style="display: flex; justify-content: center;">
-                            <img class="card-img-top" style="border-radius: 5%;" src="<?php echo $user['image']; ?>"
-                                alt="Card image cap">
+                            <img class="card-img-top" style="border-radius: 5%;" src="<?php echo $user['image']; ?>" alt="Card image cap">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title" style="text-align: center;">
@@ -85,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <?php
+            <?php
             }
             ?>
         </div>

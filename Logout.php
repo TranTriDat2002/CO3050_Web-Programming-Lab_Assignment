@@ -11,6 +11,5 @@ session_destroy();
 setcookie('user_id', '', time() - 3600, '/');
 
 // Redirect to the login page
-header('Location: index.php');
+header('Location: index.php?page=login');
 exit();
-?>

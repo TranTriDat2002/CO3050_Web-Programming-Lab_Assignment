@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Search Page</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -9,38 +9,45 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            overflow: hidden; /* Ensures the image is clipped to the rounded shape */
+            overflow: hidden;
+            /* Ensures the image is clipped to the rounded shape */
         }
+
         .flex-container {
             display: flex;
             align-items: stretch;
             background-color: #f1f1f1;
         }
+
         .candidate-name {
             font-weight: bold;
         }
-        .flex-container > div {
+
+        .flex-container>div {
             margin: 10px;
             text-align: center;
             /* line-height: 75px; */
             font-size: 15px;
 
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
+            justify-content: center;
+            /* Center content horizontally */
+            align-items: center;
+            /* Center content vertically */
         }
     </style>
     <script>
         $(document).ready(() => {
 
-            $('#searchInput').on('input', function () {
+            $('#searchInput, #filterSelect').on('input change', function() {
                 var searchValue = $(this).val().toLowerCase();
-                filterTable(searchValue);
+                var filterSelect = $('#filterSelect').val().toLowerCase();
+                filterTable(searchValue, filterSelect);
             });
-
             // Function to filter the table based on search value
-            function filterTable(searchValue) {
-                $('.table tbody tr').each(function () {
-                    var name = $(this).find('td:nth-child(1)').text().toLowerCase();
+            function filterTable(searchValue, filterSelect) {
+                $('.table tbody tr').each(function() {
+                    var target = filterSelect === 'name' ? ' .nname' : filterSelect === 'position' ? ' .ppos' : '';
+                    var name = $(this).find('td:nth-child(1) div' + target).text().toLowerCase();
                     if (name.includes(searchValue)) {
                         $(this).show();
                     } else {
@@ -51,6 +58,7 @@
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <h2>Search</h2>
@@ -58,13 +66,13 @@
             <div class="col-md-6">
                 <input type="text" class="form-control" id="searchInput" placeholder="Search...">
             </div>
-            <!-- <div class="col-md-6">
+            <div class="col-md-6">
                 <select class="form-control" id="filterSelect">
                     <option value="all">All</option>
                     <option value="name">Name</option>
-                    <option value="email">Age</option>
+                    <option value="position">Position</option>
                 </select>
-            </div> -->
+            </div>
         </div>
         <br>
         <table class="table">
@@ -100,28 +108,28 @@
                         echo "<tr>";
 
                         echo "<td>";
-                            echo "<div class=\"flex-container\">";
-                                echo "<div>";
-                                    echo "<img class=\"avatar\" src='" . $imgPath . "' alt='User Photo'>";  
-                                echo "</div>";
+                        echo "<div class=\"flex-container\">";
+                        echo "<div>";
+                        echo "<img class=\"avatar\" src='" . $imgPath . "' alt='User Photo'>";
+                        echo "</div>";
 
-                                echo "<div style=\"width: 200px;\">";
-                                    echo "<div class=\"candidate-name\">" . $row['firstname'] . " " . $row['lastname'] . "</div>";
-                                    echo "<br>";
-                                    echo $row['email'];
-                                echo "</div>";
+                        echo "<div style=\"width: 200px;\" class=\"nname\">";
+                        echo "<div class=\"candidate-name\">" . $row['firstname'] . " " . $row['lastname'] . "</div>";
+                        echo "<br>";
+                        echo $row['email'];
+                        echo "</div>";
 
-                                echo "<div style=\"width: 600px;\">";
-                                    echo "<div class=\"candidate-name\">" . $position . "</div>";
-                                    echo "<br>";
-                                    echo "Desired: ";
-                                    echo $salary;
-                                echo "</div>";
+                        echo "<div style=\"width: 600px;\" class=\"ppos\">";
+                        echo "<div class=\"candidate-name\">" . $position . "</div>";
+                        echo "<br>";
+                        echo "Desired: ";
+                        echo $salary;
+                        echo "</div>";
 
-                            echo "</div>";
+                        echo "</div>";
                         echo "</td>";
 
-                        echo "<td><a href=\"?page=showCV&id=". $row['id'] ." \" type=\"button\" class=\"btn btn-info\" role=\"button\">View CV</a></td>";
+                        echo "<td><a href=\"?page=showCV&id=" . $row['id'] . " \" type=\"button\" class=\"btn btn-info\" role=\"button\">View CV</a></td>";
                         echo "</tr>";
                     }
                 } else {
@@ -151,4 +159,5 @@
         });
     </script>
 </body>
+
 </html>
