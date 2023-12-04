@@ -34,10 +34,11 @@ ob_start();
                         <div class="row justify-content-center">';
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = $result->fetch_assoc()) {
+                            $imgPath = preg_replace('/^uploads\//', 'assets/img/', $row['avatar']);
                             $output .= '
                         <div class="col-md-4 mt-3" >
                             <div class="card border">
-                                <img class="card-img-top border border-primary" src="' . $row['avatar'] . '" alt="" style="width:90%; border-radius: 5%;">
+                                <img class="card-img-top border border-primary" src="' . $imgPath . '" alt="" style="width:90%; border-radius: 5%;">
                                 <div class="card-body" style="margin-top: 15px;">              
                                     <h4 class="card-text">Name: <strong>' . $row['firstname'] . ' ' . $row['lastname'] . '</strong></h4>
                                     <h4 class="card-text">Email: <strong>' . $row['email'] . '</strong><i class="bi bi-envelope m-1"></i></h4>
@@ -47,7 +48,7 @@ ob_start();
                             </div>
                         </div>
                         
-                        <a href="./src/generate-pdf.php?id='. $id .'" class="btn btn-primary" style="align-self: center;">Print</a>     
+                        <a href="./src/generate-pdf.php?id=' . $id . '" class="btn btn-primary" style="align-self: center;">Print</a>     
                         ';
                         }
                     }
@@ -104,7 +105,7 @@ ob_start();
                             <h2 class="card-title">Working History</h2>
                                 <ul>';
                         while ($row = $result->fetch_assoc()) {
-                            
+
                             $output .= '
                             <li><em>' . $row['position'] . '</em> at <em>' . $row['company_name'] . '</em>
                             <br>' . '<strong>Duration: </strong>' . $row['duration'] . '
@@ -135,19 +136,17 @@ ob_start();
                             </ul>
                         </div>
                     </div>';
+                    }
 
-                }
+                    $sql = "SELECT `skill` FROM `skill` WHERE user_id = $id AND `skill` <> ''";
+                    $result = $conn->query($sql);
 
-                $sql = "SELECT `skill` FROM `skill` WHERE user_id = $id AND `skill` <> ''";
-                $result = $conn->query($sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        $Skills = '';
+                        while ($row = $result->fetch_assoc()) {
 
-                if (mysqli_num_rows($result) > 0) {
-                    $Skills = '';
-                    while ($row = $result->fetch_assoc()) {
-
-                        $delimiter = empty($Skills) ? '' : ' <i class="bi bi-dot"></i> ';
-                        $Skills .= $delimiter . $row['skill'];
-
+                            $delimiter = empty($Skills) ? '' : ' <i class="bi bi-dot"></i> ';
+                            $Skills .= $delimiter . $row['skill'];
                         }
                         $output .= '
                         <div class="card mt-2">
