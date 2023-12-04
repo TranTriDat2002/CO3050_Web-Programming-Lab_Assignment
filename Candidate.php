@@ -75,17 +75,7 @@
             </thead>
             <tbody id="searchTable">
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "duc";
-                $dbname = "MyBestCV";
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                require_once('database/db_connection.php');
 
                 // Fetch and display user information
                 $sql = "SELECT * FROM users";
@@ -93,6 +83,17 @@
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        $id = $row['id'];
+                        $sql = "SELECT * FROM `resume` WHERE user_id = $id";
+                        $res = $conn->query($sql);
+                        $salary = "";
+                        $position = "";
+                        if (mysqli_num_rows($res) > 0) {
+                            while ($r = $res->fetch_assoc()) {
+                                $salary = number_format($r['desire_salary']) . '.000.000 VND <i class="bi bi-cash"></i>';
+                                $position = $r['position'] . ' (' . $r['employment_type'] . ')';
+                            }
+                        }
 
                         $imgPath = preg_replace('/^uploads\//', 'assets/img/', $row['avatar']);
 
@@ -104,11 +105,19 @@
                                     echo "<img class=\"avatar\" src='" . $imgPath . "' alt='User Photo'>";  
                                 echo "</div>";
 
-                                echo "<div>";
+                                echo "<div style=\"width: 200px;\">";
                                     echo "<div class=\"candidate-name\">" . $row['firstname'] . " " . $row['lastname'] . "</div>";
                                     echo "<br>";
                                     echo $row['email'];
                                 echo "</div>";
+
+                                echo "<div style=\"width: 600px;\">";
+                                    echo "<div class=\"candidate-name\">" . $position . "</div>";
+                                    echo "<br>";
+                                    echo "Desired: ";
+                                    echo $salary;
+                                echo "</div>";
+
                             echo "</div>";
                         echo "</td>";
 
